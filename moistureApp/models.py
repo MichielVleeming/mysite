@@ -7,9 +7,9 @@ from django.utils import timezone
 
 
 class Arduino(models.Model):
-    arduino_name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     def __str__(self):
-        return self.arduino_name
+        return self.name
 
 
 class MoistureMeter(models.Model):
@@ -18,4 +18,4 @@ class MoistureMeter(models.Model):
     pub_date = models.DateTimeField('date published')
 
     def __str__(self):
-        return self.arduino.arduino_name
+        return self.arduino.name

@@ -1,11 +1,10 @@
-from django.urls import path
-
+from django.urls import path, include
+from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-
-    path('<int:arduino_id>/', views.detail, name='detail'),
-    path('<int:arduino_id>/measurement/', views.measurement,name='measurement'),
-
+    path('arduinos/', views.arduino_list),
+    path('arduinos/<int:pk>', views.arduino_detail),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
